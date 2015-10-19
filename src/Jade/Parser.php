@@ -338,7 +338,7 @@ class Parser {
         }
         catch(\Exception $e)
         {
-            throw new \Exception($path . ' (' . $parser->blocks->line . ') : ' . $e->getMessage());
+            throw new \Exception($path . ' (' . ( (is_object($parser->blocks->line)) ? $parser->blocks->line : '' ) . ') : ' . $e->getMessage());
         }
         $this->context();
         $ast->filename = $path;
